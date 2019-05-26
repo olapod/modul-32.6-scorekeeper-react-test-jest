@@ -3,17 +3,21 @@ import Player from './Player';
 import './PlayersList.css';
 
 const PlayersList = (props) => (
-   <ul className="PlayersList">
+    
+    <ul className="PlayersList">
        {props.players.map((player, i) => (
-           <Player
+           
+        <Player
                key={i}
                name={player.name}
                score={player.score}
                onPlayerScoreChange={(points) => props.onScoreUpdate(i, points)}
                onPlayerRemove={() => props.onPlayerRemove(i)}
-           />)
+               playerColor={player.backgroundColor}
+        />)
        )}
    </ul>
 );
+
 
 export default PlayersList;

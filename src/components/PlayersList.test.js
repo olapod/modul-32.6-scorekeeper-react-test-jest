@@ -41,3 +41,23 @@ it('should call onScoreUpdate when a button is clicked', () => {
     onPlayerScoreChange(4);
     expect(mockedOnScoreUpdate).toBeCalledWith(1, 4);
 });
+
+it('should call onPlayerRemove when a button is clicked', () => {
+    const players = [
+        {
+            name: 'Kunegunda',
+            score: 5
+        },
+        {
+            name: 'Antoś',
+            score: 0
+        }
+    ]
+    const mockedOnPlayerRemove = jest.fn();
+    const playerComponent = shallow(<PlayersList players={players} onPlayerRemove={mockedOnPlayerRemove} />);
+    const removedPlayer = playerComponent.find(Player).at(1);
+    const onPlayerRemove = removedPlayer.prop('onPlayerRemove');
+    onPlayerRemove();
+    expect(mockedOnPlayerRemove).toBeCalled();
+});
+

@@ -8,11 +8,15 @@ class App extends Component {
    super();
 
    this.state = {
-     players: []
+     players: [],
    }
  }
 
- onScoreUpdate = (playerIndex, scoreChange) => {
+generateColor = () => {
+  return '#' +  Math.random().toString(16).substr(-6);
+}
+
+onScoreUpdate = (playerIndex, scoreChange) => {
   this.setState({
     players: this.state.players.map((player, index) => {
       if (index === playerIndex) {
@@ -27,27 +31,29 @@ onPlayerAdd = (playerName) => {
   const newPlayer = {
     name: playerName,
     score: 0,
+    backgroundColor: this.generateColor()
   }
   this.setState({
-    players: [...this.state.players, newPlayer]
+    players: [...this.state.players, newPlayer],
   })
 }
 
-// onPlayerRemove = (playerIndex) => {
-//   this.setState({
-//     players: this.state.players.filter(player => player.index !== playerIndex)
-//   })
-// }
-
-onPlayerRemove = (i) => {
+onPlayerRemove = (playerIndex) => {
   this.setState({
-    players: this.state.players.filter(player => player.name !== this.state.players[i].name)
-  });
-};
+    players: this.state.players.filter((__,index) => index !== playerIndex)
+  })
+}
+
+// onPlayerRemove = (i) => {
+//   this.setState({
+//     players: this.state.players.filter(player => player.index !== i)
+//   });
+// };
 
 
  render() {
-   return (
+
+  return (
      <div className="App">
        <AddPlayer onPlayerAdd={this.onPlayerAdd} />
        <PlayersList players={this.state.players} onScoreUpdate={this.onScoreUpdate} onPlayerRemove={this.onPlayerRemove}/>

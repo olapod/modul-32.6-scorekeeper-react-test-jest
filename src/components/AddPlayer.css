@@ -1,0 +1,44 @@
+.AddPlayer {
+    margin: 20px auto;
+    display: flex;  
+    align-items: center;
+  justify-content: center; 
+  
+}
+
+.AddPlayer__input, .AddPlayer__submit {
+    background-color: rgb(160, 118, 160);
+    text-transform: inherit;
+    font-weight: inherit;
+    height: 65px;
+    
+    }
+
+.AddPlayer__input {
+    border-style: none;
+    padding: 0px;
+    width: 400px;
+    caret-color :width;
+    font-size: 20px;
+}
+
+.AddPlayer__submit {
+    border: none;
+    border-left: 2px black solid;
+    cursor: pointer;
+    width: 100px;
+    font-size: 20px;
+}
+
+.AddPlayer__submit:hover {
+    transition: 0.5s;
+    color: rgb(206, 197, 197);
+ }
+
+ .AddPlayer__input::placeholder {
+     color: black;
+     font-style: italic;
+     padding-left: 20px;
+     font-weight: 500;
+     font-size: 18px;
+ }
