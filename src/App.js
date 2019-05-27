@@ -38,17 +38,17 @@ onPlayerAdd = (playerName) => {
   })
 }
 
-onPlayerRemove = (playerIndex) => {
-  this.setState({
-    players: this.state.players.filter((__,index) => index !== playerIndex)
-  })
-}
-
-// onPlayerRemove = (i) => {
+// onPlayerRemove = (playerIndex) => {
 //   this.setState({
-//     players: this.state.players.filter(player => player.index !== i)
-//   });
-// };
+//     players: this.state.players.filter((__,index) => index !== playerIndex)
+//   })
+// }
+
+onPlayerRemove = (i) => {
+  this.setState({
+    players: this.state.players.filter((player, index) => index !== i)
+  });
+};
 
 
  render() {
